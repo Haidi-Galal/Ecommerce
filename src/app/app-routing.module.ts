@@ -14,13 +14,19 @@ import { RegisterComponent } from './components/register/register.component';
 import { authGuardGuard } from './shared/core/auth-guard.guard';
 import { BlankComponent } from './components/blank/blank.component';
 import { AllordersComponent } from './components/allorders/allorders.component';
+import { CategoriesModule } from './categories/categories.module';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 
 const routes: Routes = [
   {
     path:'' ,component:NavAuthComponent,children:[
       {
-        path:'login' ,component:LoginComponent,title:'login',
+        path:'login' ,component:LoginComponent,title:'login'
+        
+
       },
+      {path:'forgotpassword',component:ForgotpasswordComponent},
+
       {
     path:'register' , component:RegisterComponent,title:'register'
 
@@ -57,7 +63,7 @@ const routes: Routes = [
         path:'brands' ,component:BrandsComponent
       },
       {
-        path:'categories' ,component:CategoriesComponent
+        path:'categories' , loadChildren:()=> import('./categories/categories.module').then((m)=>m.CategoriesModule)
       },
       {
         path:'products' ,component:ProductsComponent

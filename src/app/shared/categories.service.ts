@@ -12,5 +12,9 @@ export class CategoriesService {
   getCategories():Observable<any>{
    return  this._http.get('https://ecommerce.routemisr.com/api/v1/categories');
   }
+  getBrands():Observable<any>{
+    return  this._http.get('https://ecommerce.routemisr.com/api/v1/brands');
+
+  }
 
 }

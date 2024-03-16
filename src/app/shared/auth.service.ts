@@ -33,4 +33,22 @@ export class AuthService {
     this._router.navigate(['/login']);
    }
   }
+  forgotPassword(email:string):Observable<any>{
+  return  this._httpclient.post('https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords',{
+      email:email
+    });
+  }
+  resetcode(code:string):Observable<any>{
+   return  this._httpclient.post('https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode',{
+      resetCode:code
+    })
+  }
+  resetPasswordCode(newPassword:string ,email:string):Observable<any>{
+    return this._httpclient.put('https://ecommerce.routemisr.com/api/v1/auth/resetPassword',
+    {
+      email:email,
+      newPassword:newPassword
+    }
+    )
+  }
 }

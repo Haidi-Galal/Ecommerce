@@ -58,7 +58,7 @@
    
   <h2 class="h3 p-4 ">Popular <span class="text-main">products</span></h2>
    <div class="row g-4" >
-      <div class="col-md-2    " *ngFor="let product of products|search:searchInput" >
+      <div class="col-md-2    " *ngFor="let product of products" >
           <div class="product p-2  "  >
            <div  [routerLink]="['/details',product._id]" role="button">
             <img [src]="product.imageCover" [alt]="product.title" class="w-100 "  >

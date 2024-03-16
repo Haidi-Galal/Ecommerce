@@ -15,11 +15,14 @@ export class MyHttpInterceptor implements HttpInterceptor {
     token:localStorage.getItem('etoken')
    }
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    request= request.clone(
+     if(localStorage.getItem('etoken')!=null){
+       request= request.clone(
      {
       setHeaders:this.headers
      }
      );
+     }
+   
    
    
     return next.handle(request);

@@ -25,6 +25,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { OrderdetailsComponent } from './components/orderdetails/orderdetails.component';
 import { AllordersComponent } from './components/allorders/allorders.component';
 import { MyHttpInterceptor } from './my-http.interceptor';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { MyHttpInterceptor } from './my-http.interceptor';
     SearchPipe,
     TexttransformPipe,
     OrderdetailsComponent,
-    AllordersComponent
+    AllordersComponent,
+    ForgotpasswordComponent
   ],
   imports: [
     BrowserModule,
