@@ -26,6 +26,7 @@ import { OrderdetailsComponent } from './components/orderdetails/orderdetails.co
 import { AllordersComponent } from './components/allorders/allorders.component';
 import { MyHttpInterceptor } from './my-http.interceptor';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { WhishlistComponent } from './components/whishlist/whishlist.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
     TexttransformPipe,
     OrderdetailsComponent,
     AllordersComponent,
-    ForgotpasswordComponent
+    ForgotpasswordComponent,
+    WhishlistComponent
   ],
   imports: [
     BrowserModule,

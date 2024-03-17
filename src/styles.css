@@ -46,16 +46,31 @@
    border: solid 1px var(--main-color);
    transition: box-shadow 0.5s;
    overflow: hidden;
+   position: relative;
+   padding-block: 20px;
  
  }
- .product .btn-main{
+ .product .btn-main {
    transform: translateY(150%);
    transition:  all 0.7s;
  }
- .product:hover .btn-main{
+ .product:hover .btn-main {
    transform: translate(0%);
  
  }
+
+ .product .icon {
+  position: absolute;
+  top: 10px;
+  left: 100%;
+  transition: all .7s;
+
+ }
+ .product:hover .icon{
+  left: 80%;
+ 
+ }
+ 
  
  
  .product:hover {

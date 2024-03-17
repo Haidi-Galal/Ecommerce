@@ -6,6 +6,7 @@ import { CategoriesService } from 'src/app/shared/categories.service';
 import { Categories } from 'src/app/shared/interfaces/categories';
 import { Products } from 'src/app/shared/interfaces/products';
 import { ProductsService } from 'src/app/shared/products.service';
+import { WhishlistService } from 'src/app/shared/whishlist.service';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ import { ProductsService } from 'src/app/shared/products.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  constructor(private _products:ProductsService,private _categoris:CategoriesService,private _cart:CartService,private _toastr:ToastrService){
+  constructor(private _products:ProductsService,private _categoris:CategoriesService,private _cart:CartService,private _toastr:ToastrService, private _whishlistService:WhishlistService){
 
 
   }
@@ -87,6 +88,16 @@ export class HomeComponent {
 
       }
     });
+  }
+  addproductToFav(id:string){
+    this._whishlistService.addProductToWhishList(id).subscribe({
+      next:(response)=>{
+        console.log(response);
+      },
+      error:(err)=>{
+        console.log(err);
+      }
+    })
   }
 }
 
