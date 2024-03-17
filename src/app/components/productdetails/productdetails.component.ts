@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from 'src/app/shared/cart.service';
 import { Products } from 'src/app/shared/interfaces/products';
@@ -17,6 +18,17 @@ export class ProductdetailsComponent {
   }
   productDetails:Products={} as Products;
 //  id:string="";
+imgSlider: OwlOptions = {
+  loop: true,
+  mouseDrag: true,
+  touchDrag: false,
+  pullDrag: false,
+  dots: false,
+  navSpeed: 700,
+  navText: ['', ''],
+ items:1,
+  nav: true
+}
   ngOnInit(): void {
     
    this._Activatedroute.paramMap.subscribe({
@@ -27,7 +39,7 @@ export class ProductdetailsComponent {
         next:(response)=>{
           // console.log(response);
           this.productDetails=response.data;
-          console.log(this.productDetails);
+          console.log("details",this.productDetails);
         },
         error:(err)=>{
           console.log(err);

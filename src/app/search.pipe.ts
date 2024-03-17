@@ -8,7 +8,7 @@ export class SearchPipe implements PipeTransform {
 
   transform(products:Products[],searchInput:string): Products[] {
     return products.filter((product)=>{
-      product.title.toLowerCase().includes(searchInput.toLowerCase());
+    return   product.title.toLowerCase().includes(searchInput.toLowerCase());
     });
   }
 
