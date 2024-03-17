@@ -58,11 +58,16 @@
    
   <h2 class="h3 p-4 ">Popular <span class="text-main">products</span></h2>
    <div class="row g-4" >
-      <div class="col-md-2    " *ngFor="let product of products" >
+      <div class="col-md-2    " *ngFor="let product of products;let item =index" >
           <div class="product p-2  "  >
-            <div  (click)="addproductToFav(product._id)">
-              <i role="button"  class="fa-regular fa-heart fs-2  icon "  ></i>
+            <div   (click)="addproductToFav(product._id)" *ngIf="!productsIds.includes(product._id)"  >
+              <i   role="button"  class="fa-regular fa-heart fs-2  icon "  ></i>
+            
 
+            </div>
+            <div  *ngIf="productsIds.includes(product._id)" (click)="removeProductFromFav(product._id)">
+              <i   role="button"  class="fa-solid fa-heart icon text-danger  fs-2 "  ></i>
+            
             </div>
            <div  [routerLink]="['/details',product._id]" role="button">
            

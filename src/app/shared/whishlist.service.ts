@@ -15,5 +15,11 @@ export class WhishlistService {
       "productId": prodctId
   })
    }
+   removeProductFromWishList(id:string):Observable<any>{
+    return this.http.delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${id}`)
+   }
+   getUserWhishList():Observable<any>{
+    return this.http.get('https://ecommerce.routemisr.com/api/v1/wishlist');
+   }
 
 }

@@ -58,7 +58,7 @@ export class HomeComponent {
    items:1,
     nav: true
   }
- 
+  productsIds:string[]=[];
   ngOnInit(): void {
   this._categoris.getCategories().subscribe({
   next:(response) =>{
@@ -76,6 +76,14 @@ export class HomeComponent {
     error:(err)=>{
       console.log(err);
     }
+   });
+   this._whishlistService.getUserWhishList().subscribe({
+    next:(response)=>{
+      this.productsIds=  response.data.map((item:any)=>{
+       return item._id;
+      })
+     console.log("dataaaa", response.data);
+    }
    })
     
   }
@@ -92,10 +100,25 @@ export class HomeComponent {
   addproductToFav(id:string){
     this._whishlistService.addProductToWhishList(id).subscribe({
       next:(response)=>{
-        console.log(response);
+        
+        this.productsIds=response.data;
+        
+        console.log(this.productsIds);
+        this._toastr.success(response.message);
+
       },
       error:(err)=>{
         console.log(err);
+      }
+    })
+  }
+  removeProductFromFav(id:string){
+    this._whishlistService.removeProductFromWishList(id).subscribe({
+      next:(response)=>{
+        this.productsIds=response.data;
+        console.log(response);
+        this._toastr.success(response.message);
+
       }
     })
   }

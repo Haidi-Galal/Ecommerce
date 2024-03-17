@@ -1,5 +1,5 @@
 import { OrderdetailsComponent } from './components/orderdetails/orderdetails.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrandsComponent } from './components/brands/brands.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -16,6 +16,7 @@ import { BlankComponent } from './components/blank/blank.component';
 import { AllordersComponent } from './components/allorders/allorders.component';
 import { CategoriesModule } from './categories/categories.module';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { WhishlistComponent } from './components/whishlist/whishlist.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,9 @@ const routes: Routes = [
       },
       {
         path:'details/:id' ,component:ProductdetailsComponent
+      }
+      ,{
+        path:'whishlist' ,component:WhishlistComponent ,title:'whishlist'
       }
     ]
   }
